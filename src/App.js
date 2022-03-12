@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <Grid container>
         <Grid item xs={8}>
-          <Protoducts data={allProducts} />
+          <Protoducts data={allProducts} setTocart={setTocart} />
         </Grid>
         <Grid item xs={2}>
           <Cart cart={cart} />

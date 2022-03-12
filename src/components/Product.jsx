@@ -8,7 +8,7 @@ import { Grid } from "@mui/material"
 import { Button } from "@mui/material"
 import { TextField } from "@mui/material"
 
-function Product({ data }) {
+function Product({ data, setTocart }) {
     const { image, title, description, price } = data
     const [quantity, setQuantity] = useState(0)
 
@@ -32,9 +32,10 @@ function Product({ data }) {
                 <Grid item xs={4}><TextField disabled value={quantity} /></Grid>
                 <Grid item xs={4}><Button onClick={() => setQuantity(prev => prev - 1)} variant="contained"> Minus one</Button></Grid>
             </Grid>
-            <Button fullWidth onClick={() => console.log("doing smt")}>Add To Card</Button>
+            <Button fullWidth onClick={() => setTocart(prev => [...prev, { title: title, price: price, quantity: quantity }])}>Add To Card</Button>
         </Card>
     </>)
 }
+
 
 export default Product
